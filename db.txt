@@ -1,0 +1,33 @@
+
+https://www.malekal.com/installer-mysql-mariadb-sur-debian-10/#Installer_MySQL_Mariadb_sur_Debian_10
+
+
+sudo apt updade
+---------------------------
+sudo apt mariadb-server
+---------------------------
+sudo apt mariadb-client
+---------------------------
+sudo systemctl status mariadb
+---------------------------
+sudo mysql_secure_installation
+---------------------------
+sudo mysql -u root -p
+---------------------------
+sudo systemctl start mysql
+---------------------------
+CREATE DATABASE TEST;
+---------------------------
+SHOW DATABASE;
+---------------------------
+use TEST;
+---------------------------
+CREATE table utilisateur(
+    -> ID int,
+    -> Name varchar(30),
+    -> Ville varchar(30)
+    -> );
+---------------------------
+insert into utilisateur values ('1','mostapha','calais');
+-----------------------------
+select * from utilisateur;
