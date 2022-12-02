@@ -1,0 +1,33 @@
+//1 update et upgrade pour la machine
+sudo apt update 
+sudo apt upgrade
+
+//installayion du appache2
+sudo apt install apache2
+
+sudo apache2 -v
+
+sudo systemctl status apache2
+
+sudo systemctl restart apache2
+
+
+//on test par le ip public lzim ybayin 3ena shi 3an apache2
+
+//ba3den bdna nmshe bl path kerml n5l2 test folder
+
+
+cd /var/www
+ls
+//html result
+sudo mkdir test
+cd test
+sudo nano index.html
+//ecrire un hello world
+//Ensuite à la fin on change le path dans le fichier 000-default.conf 
+// a la place de /var/www/html on met /var/www/test
+sudo nano  /etc/apache2/sites-enabled/000-default.conf 
+
+sudo systemctl restart apache2
+
+
