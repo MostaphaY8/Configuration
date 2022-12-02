@@ -1,0 +1,56 @@
+//Pour créer un utilisateur c’est avec la commande : 
+sudo adduser nom_de_utilisateur
+//Pour créer un groupe c’est avec la commande : 
+sudo addgroup nom_du_groupe
+//Pour la vérification de la créations des utilisateurs :
+ls -la /home
+//Maintenant on doit associés à chaque utilisateur un groupe :
+sudo usermod -aG nom_du_grp nom_de_utilisateur
+sudo usermod -aG sudo mostapha
+====================================================================
+====================================================================
+//Connection en utilisant les identifiants avec la clé ssh
+
+su mostapha
+mkdir .ssh
+sudo chmod 700 .ssh
+
+touch .ssh/authorized_keys
+nano .ssh/authorized_keys
+// inserer la cle dans PuttyGen
+
+//2eme etape 
+// modification du fichier sshd_config
+sudo nano /etc/ssh/sshd_config
+En modifiant no à yes pour PasswordAuthentication
+En ajoutant AuthenticationMethods “publickey,password”
+
+// 3
+sudo service sshd restart
+login as mostapha 
+// pour les autre utilisateur du mostapha 
+cd /home/alexis
+sudo mkdir .ssh
+sudo touch .ssh/authorized_keys
+sudo nano .ssh/authorized_keys
+
+
+=====================================
+=====================================
+//Fail2ban
+
+sudo apt update 
+sudo apt upgrade
+sudo apt install faill2ban
+systemctl status faill2ban.service
+
+//3
+cd /etc/fail2ban
+sudo cp jail.conf jail.local
+sudo nano jail.local
+//modification du bantime et findtime et maxretry
+sudo systemctl restart fail2ban
+// a la fin tester avec des mots de pass no vérification
+
+=========================================
+========================================
